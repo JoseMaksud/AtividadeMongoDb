@@ -1,0 +1,398 @@
+mongosh "mongodb+srv://cluster0.jse8v.mongodb.net/" --apiVersion 1 --username admin
+
+-- acessar um banco
+use donutsDb
+
+-- verificar os bancos existentes
+show dbs
+
+-- verificar as coleções de um banco
+show collections
+
+-- criar uma coleção
+db.createCollection("nome da coleção") // não vai fazer por essa forma
+
+-- CRUD
+-- criar uma coleção por inserção de dados
+-- CREATE
+db.donuts.insertMany([
+    {
+        nome: 'Açúcar com canela',
+        ingredientes: 'Donut passado no açúcar refinado com canela em pó.',
+        preco: 8.90,
+        precoDesconto: 8.90,
+        imagem: "img/produtos/1.png",
+        categorias: ['Donuts Tradicionais'],
+    },
+    {
+        nome: 'Chocolate ao leite',
+        ingredientes: 'Cobertura de chocolate ao leite e granulado.',
+        preco: 10.90,
+        precoDesconto: 10.90,
+        imagem: "img/produtos/2.png",
+        categorias: ['Donuts Tradicionais'],
+    },
+    {
+        nome: 'Blue',
+        ingredientes: 'Cobertura de chocolate branco tingido de azul e granulado colorido.',
+        preco: 11.90,
+        precoDesconto: 11.90,
+        imagem: "img/produtos/3.png",
+        categorias: ['Donuts Tradicionais'],
+    },
+    {
+        nome: 'Homer',
+        ingredientes: 'Cobertura de chocolate branco tingido de rosa e granulado colorido.',
+        preco: 11.90,
+        precoDesconto: 11.90,
+        imagem: "img/produtos/4.png",
+        categorias: ['Donuts Tradicionais'],
+    },
+    {
+        nome: 'Chocolate meio amargo',
+        ingredientes: 'Cobertura de chocolate meio amargo.',
+        preco: 11.90,
+        precoDesconto: 11.90,
+        imagem: "img/produtos/5.png",
+        categorias: ['Donuts Tradicionais'],
+    },
+    {
+        nome: 'Confete',
+        ingredientes: 'Cobertura de chocolate ao leite e coberto com confete.',
+        preco: 11.90,
+        precoDesconto: 11.90,
+        imagem: "img/produtos/6.png",
+        categorias: ['Donuts Tradicionais'],
+    },
+    {
+        nome: 'Nutella',
+        ingredientes: 'Cobertura generosa de Nutella.',
+        preco: 14.90,
+        precoDesconto: 14.90,
+        imagem: "img/produtos/7.png",
+        categorias: ['Donuts Tradicionais'],
+    },
+    {
+        nome: 'Ouro Branco',
+        ingredientes: 'Cobertura de ganache de chocolate branco, fios de chocolate ao leite e ouro branco picado.',
+        preco: 14.90,
+        precoDesconto: 14.90,
+        imagem: "img/produtos/8.png",
+        categorias: ['Donuts Tradicionais'],
+    },
+    {
+        nome: 'Ninho',
+        ingredientes: 'Cobertura de brigadeiro de leite ninho finalizado com leite em pó.',
+        preco: 13.90,
+        precoDesconto: 13.90,
+        imagem: "img/produtos/9.png",
+        categorias: ['Donuts Tradicionais'],
+    },
+    {
+        nome: 'KitKat',
+        ingredientes: 'Cobertura de ganache de chocolate ao leite finalizado com KitKat.',
+        preco: 13.90,
+        precoDesconto: 13.90,
+        imagem: "img/produtos/10.png",
+        categorias: ['Donuts Tradicionais'],
+    },
+    {
+        nome: 'Stikadinho',
+        ingredientes: 'Cobertura de chocolate meio amargo, fios de recheio de morango e Stikadinho.',
+        preco: 13.90,
+        precoDesconto: 13.90,
+        imagem: "img/produtos/11.png",
+        categorias: ['Donuts Tradicionais'],
+    },
+    {
+        nome: 'Churros',
+        ingredientes: 'Cobertura de brigadeiro de churros polvilhado com açúcar e canela.',
+        preco: 13.90,
+        precoDesconto: 13.90,
+        imagem: "img/produtos/12.png",
+        categorias: ['Donuts Tradicionais'],
+    },
+    {
+        nome: 'Doce de leite',
+        ingredientes: 'Cobertura de doce de leite.',
+        preco: 13.90,
+        precoDesconto: 13.90,
+        imagem: "img/produtos/13.png",
+        categorias: ['Donuts Tradicionais'],
+    },
+    {
+        nome: 'Kinder bueno',
+        ingredientes: 'Recheado de Nutella e ganache branca coberto com chocolate ao leite e Kinder bueno.',
+        preco: 19.90,
+        precoDesconto: 19.90,
+        imagem: "img/produtos/14.png",
+        categorias: ['Donuts Recheados'],
+    },
+    {
+        nome: 'Ferrero rocher',
+        ingredientes: 'Recheado com brigadeiro de Ferrero coberto com chocolate ao leite, amendoim e bombom Ferrero.',
+        preco: 19.90,
+        precoDesconto: 19.90,
+        imagem: "img/produtos/15.png",
+        categorias: ['Donuts Recheados'],
+    },
+    {
+        nome: 'Petit Gateau',
+        ingredientes: 'Recheado com brigadeiro coberto com chocolate meio amargo e uma bola de sorvete.',
+        preco: 19.90,
+        precoDesconto: 19.90,
+        imagem: "img/produtos/16.png",
+        categorias: ['Donuts Recheados'],
+    },
+    {
+        nome: 'Nutella (recheado)',
+        ingredientes: 'Recheado de Nutella com cobertura de Nutella.',
+        preco: 19.90,
+        precoDesconto: 19.90,
+        imagem: "img/produtos/17.png",
+        categorias: ['Donuts Recheados'],
+    },
+    {
+        nome: 'Ninho com Nutella',
+        ingredientes: 'Recheado com brigadeiro de Ninho coberto com Nutella, finalizado com chocoball.',
+        preco: 18.90,
+        precoDesconto: 18.90,
+        imagem: "img/produtos/18.png",
+        categorias: ['Donuts Recheados'],
+    },
+    {
+        nome: 'Banana nevada',
+        ingredientes: 'Recheado de ganache de chocolate branco com banana e casquinha de chocolate branco.',
+        preco: 18.90,
+        precoDesconto: 18.90,
+        imagem: "img/produtos/19.png",
+        categorias: ['Donuts Recheados'],
+    },
+    {
+        nome: 'Surpresa de uva',
+        ingredientes: 'Recheado com brigadeiro de Ninho e uvas frescas, coberto com ganache de chocolate ao leite, uvas e polvilhado com leite Ninho.',
+        preco: 18.90,
+        precoDesconto: 18.90,
+        imagem: "img/produtos/20.png",
+        categorias: ['Donuts Recheados'],
+    },
+    {
+        nome: 'Ouro branco (recheado)',
+        ingredientes: 'Recheio cremoso de Ouro Branco, coberto com chocolate branco, bombom de Ouro Branco picado e fios de chocolate ao leite.',
+        preco: 17.90,
+        precoDesconto: 17.90,
+        imagem: "img/produtos/21.png",
+        categorias: ['Donuts Recheados'],
+    },
+    {
+        nome: 'Super ninho',
+        ingredientes: 'Recheado de brigadeiro de Ninho, coberto e polvilhado com leite em pó.',
+        preco: 15.90,
+        precoDesconto: 15.90,
+        imagem: "img/produtos/22.png",
+        categorias: ['Donuts Recheados'],
+    },
+    {
+        nome: 'Stikadinho (recheado)',
+        ingredientes: 'Recheado com creme de morango, coberto com chocolate meio amargo, fios de creme de morango e Stikadinho.',
+        preco: 15.90,
+        precoDesconto: 15.90,
+        imagem: "img/produtos/23.png",
+        categorias: ['Donuts Recheados'],
+    },
+    {
+        nome: 'Oreo',
+        ingredientes: 'Recheado com brigadeiro de Oreo, coberto com chocolate branco e Oreo.',
+        preco: 15.90,
+        precoDesconto: 15.90,
+        imagem: "img/produtos/24.png",
+        categorias: ['Donuts Recheados'],
+    },
+    {
+        nome: 'Super doce de leite',
+        ingredientes: 'Recheado com doce de leite e coberto com doce de leite.',
+        preco: 15.90,
+        precoDesconto: 15.90,
+        imagem: "img/produtos/25.png",
+        categorias: ['Donuts Recheados'],
+    },
+    {
+        nome: 'Frango cremoso',
+        ingredientes: 'Donut coberto com delicioso frango cremoso desfiado e catupiry original.',
+        preco: 16.90,
+        precoDesconto: 16.90,
+        imagem: "img/produtos/26.png",
+        categorias: ['Donuts Salgados'],
+    },
+    {
+        nome: 'Baconpiry',
+        ingredientes: 'Donut coberto com catupiry original e cubos de bacon frito.',
+        preco: 16.90,
+        precoDesconto: 16.90,
+        imagem: "img/produtos/27.png",
+        categorias: ['Donuts Salgados'],
+    },
+    {
+        nome: 'Bacon cheddar',
+        ingredientes: 'Donut coberto com cheddar e cubos de bacon frito.',
+        preco: 16.90,
+        precoDesconto: 16.90,
+        imagem: "img/produtos/28.png",
+        categorias: ['Donuts Salgados'],
+    },
+    {
+        nome: 'Cheddar com doritos',
+        ingredientes: 'Donut coberto com cheddar e Doritos.',
+        preco: 16.90,
+        precoDesconto: 16.90,
+        imagem: "img/produtos/29.png",
+        categorias: ['Donuts Salgados'],
+    },
+    {
+        nome: 'Mini Donuts',
+        ingredientes: 'Feito mediante encomenda de uma semana antes.',
+        preco: 0.00,
+        precoDesconto: 0.00,
+        imagem: "img/produtos/30.png",
+        categorias: ['Mini Donuts'],
+    },
+    {
+        nome: 'Donuts Flork (coberto)',
+        ingredientes: 'Donut personalizado com desenho e frase.',
+        preco: 17.90,
+        precoDesconto: 17.90,
+        imagem: "img/produtos/31.png",
+        categorias: ['Mini Donuts'],
+    },
+    {
+        nome: 'Donuts Flork (recheado)',
+        ingredientes: 'Donut personalizado com desenho e frase, recheado com Nutella, Ninho, Morango ou Doce de leite.',
+        preco: 21.90,
+        precoDesconto: 21.90,
+        imagem: "img/produtos/32.png",
+        categorias: ['Mini Donuts'],
+    },
+    {
+        "nome": "Água mineral",
+        "ingredientes": "",
+        "preco": 4.00,
+        "precoDesconto": 4.00,
+        "imagem": "img/produtos/33.png",
+        categorias: ['Bebidas'],
+    },
+    {
+        "nome": "Água com gás",
+        "ingredientes": "",
+        "preco": 4.50,
+        "precoDesconto": 4.50,
+        "imagem": "img/produtos/34.png",
+        categorias: ['Bebidas'],
+    },
+    {
+        "nome": "Refrigerante lata",
+        "ingredientes": "Coca-cola, Coca-cola zero, Fanta, Sprite, Guaraná Antártica, Schweppes.",
+        "preco": 6.00,
+        "precoDesconto": 6.00,
+        "imagem": "img/produtos/35.png",
+        categorias: ['Bebidas'],
+    },
+    {
+        "nome": "Del vale lata",
+        "ingredientes": "",
+        "preco": 6.00,
+        "precoDesconto": 6.00,
+        "imagem": "img/produtos/36.png",
+        categorias: ['Bebidas'],
+    },
+    {
+        "nome": "Monster",
+        "ingredientes": "",
+        "preco": 11.00,
+        "precoDesconto": 11.00,
+        "imagem": "img/produtos/37.png",
+        categorias: ['Bebidas'],
+    },
+    {
+        "nome": "Soda italiana 200ml",
+        "ingredientes": "Limão siciliano, frutas vermelhas, maçã verde, kiwi.",
+        "preco": 13.90,
+        "precoDesconto": 13.90,
+        "imagem": "img/produtos/38.png",
+        categorias: ['Bebidas'],
+    },
+    {
+        "nome": "Milk shake 400ml",
+        "ingredientes": "Nutella, Ovomaltine, Morango, Ninho com Nutella, Doce de leite, Oreo.",
+        "preco": 17.90,
+        "precoDesconto": 17.90,
+        "imagem": "img/produtos/39.png",
+        categorias: ['Bebidas'],
+    },
+    {
+        "nome": "Toddynho",
+        "ingredientes": "",
+        "preco": 4.90,
+        "precoDesconto": 4.90,
+        "imagem": "img/produtos/40.png",
+        categorias: ['Bebidas'],
+    },
+    {
+        "nome": "Alpino 270ml",
+        "ingredientes": "",
+        "preco": 9.90,
+        "precoDesconto": 9.90,
+        "imagem": "img/produtos/41.png",
+        categorias: ['Bebidas'],
+    },
+    {
+        "nome": "Nescau 270ml",
+        "ingredientes": "",
+        "preco": 9.90,
+        "precoDesconto": 9.90,
+        "imagem": "img/produtos/42.png",
+        categorias: ['Bebidas'],
+    },
+    {
+        "nome": "Neston 270ml",
+        "ingredientes": "",
+        "preco": 9.90,
+        "precoDesconto": 9.90,
+        "imagem": "img/produtos/43.png",
+        categorias: ['Bebidas'],
+    },
+    {
+        "nome": "Nescafé 270ml",
+        "ingredientes": "",
+        "preco": 9.90,
+        "precoDesconto": 9.90,
+        "imagem": "img/produtos/44.png",
+        categorias: ['Bebidas'],
+    }
+])
+
+-- CRUD
+-- READ 
+db.donuts.find()
+db.donuts.find().pretty()
+db.donuts.find({ preco : 8.90 })
+db.donuts.find({ precoDesconto: 9.90 })
+
+-- CRUD
+-- UPDATE
+db.donuts.updateOne(
+    { nome: 'Nutella' },
+    { $set: { precoDesconto: 12.90 }}
+)
+db.donuts.updateOne(
+    { nome: 'Ninho' },
+    { $set: { precoDesconto: 11.90 }}
+)
+
+-- CRUD
+-- DELETE
+db.donuts.deleteOne({ _id: 1 })
+db.donuts.deleteOne({ _id: 2 })
+
+-- Como concertar a linha no Word
+Cole tudo e clique em substituir ou Ctrl + U após isso escreva '^p' e clique em substituir tudo
+
